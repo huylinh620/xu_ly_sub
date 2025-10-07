@@ -11,7 +11,8 @@
     <div class="check-syntax-error"></div>
     <span>Upload file .txt</span><br>
     <input type="file" id="fileInput" accept=".txt" onchange="uploadFile()">
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button id="download" class="copyButton" style="clear:both; float: none;">Tải file SRT</button>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button id="download" class="copyButton" style="clear:both; float: none;">Tải file SRT</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button style="clear:both; float: none;" id="convert-to-array" class="copyButton" onclick=" removeLines()">Convert to Array</button>
+
     <br><br>
     <div id="div10">
         <textarea id="textBox" name="text"
@@ -28,7 +29,6 @@
             <button class="copyButton" id="colorGreen" onclick="copy()">Copy<span class="hide"> Text</span></button>
         </div>
     </div>
-    <button id="clearText" class="copyButton">Convert to Array</button>
     <div id="snackbar">Copied Text!</div>
     <div id="snackbarFail">No Text Entered!</div>
 <script src="script.js" defer></script>
