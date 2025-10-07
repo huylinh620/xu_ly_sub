@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="styles.css">
+    </head>
+<body>
+    <h1><a href="line-numberer.html" target="_blank">Ứng dụng khác: Đánh số dòng (JS)</a></h1>
+    <h2>Total line: <span class="js-total-all"></span></h2>
+    <h3>Total line > 200 character: <span class="js-total"></span> lines</h3>
+    <div class="check-text-length"></div>
+    <div class="check-syntax-error"></div>
+    <span>Upload file .txt</span><br>
+    <input type="file" id="fileInput" accept=".txt" onchange="uploadFile()">
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button id="download" class="copyButton" style="clear:both; float: none;">Tải file SRT</button>
+    <br><br>
+    <div id="div10">
+        <textarea id="textBox" name="text"
+                    placeholder="Text raw"></textarea>
+    </div>
+    <br>
+    <div id="div10">
+        <div class="textAreaBox">
+            <form>
+                <textarea id="userWord" name="text" autofocus="" oninput="callFunction()"
+                    placeholder="Start typing! The Chinese character count will display above."></textarea>
+
+            </form>
+            <button class="copyButton" id="colorGreen" onclick="copy()">Copy<span class="hide"> Text</span></button>
+        </div>
+    </div>
+    <button id="clearText" class="copyButton">Convert to Array</button>
+    <div id="snackbar">Copied Text!</div>
+    <div id="snackbarFail">No Text Entered!</div>
+<script src="script.js" defer></script>
+</body>
+</html> 
