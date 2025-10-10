@@ -132,6 +132,10 @@ function uploadFile() {
     reader.readAsText(file, 'UTF-8');
 }
 
+document.querySelector('#textBox').addEventListener('change', () => {
+    removeLines();
+});
+
 async function removeLines() {
     const texts = document.getElementById("textBox").value;
     
