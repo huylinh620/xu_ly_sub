@@ -231,7 +231,7 @@ function checkLengthText(arr) {
 function checkSynstaxText(arr) {
     const textError = arr.filter(item => {
         const newItem = item.toLowerCase();
-        return newItem.includes('cô1') || newItem.includes('tôi1') || newItem.includes('anh1') || newItem.includes('chị1') || newItem.includes('em1') || newItem.includes('đối tượng')
+        return newItem.includes('cô1') || newItem.includes('tôi1') || newItem.includes('anh1') || newItem.includes('chị1') || newItem.includes('em1') || newItem.includes('đối tượng') || newItem.includes('#')
     });
     const result = document.querySelector('.check-syntax-error');
     if (result) {
