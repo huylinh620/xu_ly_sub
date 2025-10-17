@@ -144,8 +144,8 @@ async function removeLines() {
         .replace(/[【】"“”‘’[\]\\]/g, "'")
         .replace(/["「」]+/g, "'")
         .replace(/,+$/gm, "")
-        .replace(/~～/g, '!')
-        // .replace(/#/g, '')
+        .replace(/~/g, '!')
+        .replace(/～/g, '!')
         .replace(/(^|[^.])\.(?!\.)$/gm, (match, p1) => p1)
         .replaceAll('v.v', 'vân vân')
 
