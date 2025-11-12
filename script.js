@@ -153,7 +153,7 @@ async function removeLines() {
 
     const capitalizedWords = capitalizeFirstLetter(newTextArray)
     
-    document.getElementById("textBox").value = capitalizedWords.join('\n\n')
+    document.getElementById("textBox").value = capitalizedWords.join('\n')
 
 
     document.querySelector('.js-total-all').innerHTML = capitalizedWords.length;
