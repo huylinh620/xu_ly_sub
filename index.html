@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -11,13 +12,21 @@
     <div class="check-syntax-error"></div>
     <span>Upload file .txt</span><br>
     <input type="file" id="fileInput" accept=".txt" onchange="uploadFile()">
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button id="download" class="copyButton" style="clear:both; float: none;">Tải file SRT</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button style="clear:both; float: none;" id="convert-to-array" class="copyButton" onclick=" removeLines()">Convert to Array</button>
 
     <br><br>
     <div id="div10">
-        <textarea id="textBox" name="text"
-                    placeholder="Text raw"></textarea>
+            <button id="download" class="copyButton" style="clear:both; float: none;">Tải file SRT</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button style="clear:both; float: none;" id="convert-to-array" class="copyButton" onclick=" removeLines()">Convert to Array</button>
+            <br>
+            <br>
+            <textarea id="textBox" name="text" placeholder="Nội dung file SRT sẽ hiện ở đây..."></textarea>
     </div>
+
+    <div id="two-capital-phrases-box" 
+        style="margin-top:20px;padding:10px;border:1px solid #ddd;border-radius:6px;">
+        <h3>Các câu tên riêng: có thể là nhân vật, địa danh</h3>
+        <div id="highlightResult"></div>
+    </div>
+
     <br>
     <div id="div10">
         <div class="textAreaBox">

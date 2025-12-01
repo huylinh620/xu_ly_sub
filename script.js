@@ -1,5 +1,8 @@
 let srtContent = "";
 
+// Regex: bắt cụm từ viết hoa đầu mỗi từ (tiếng Anh + tiếng Việt có dấu)
+const CAPITAL_PHRASE_REGEX = /(?:^|\W)([A-ZÀ-Ỵ][a-zà-ỹ]+(?:\s+[A-ZÀ-Ỵ][a-zà-ỹ]+)*)/g;
+
 // Đoạn tiếng Trung cần chèn
 async function loadSub(url) {
     try {
@@ -153,13 +156,16 @@ async function removeLines() {
 
     const capitalizedWords = capitalizeFirstLetter(newTextArray)
     
-    document.getElementById("textBox").value = capitalizedWords.join('\n')
+    document.getElementById("textBox").value = capitalizedWords.join('\n\n')
 
 
     document.querySelector('.js-total-all').innerHTML = capitalizedWords.length;
 
     // checkLengthText(capitalizedWords)
     checkSynstaxText(capitalizedWords)
+    renderHighlightedList(capitalizedWords)
+    // const results = checkNamesByLine(capitalizedWords);
+    // renderLineCheckResult(results)
 
     srtContent = toSRT(capitalizedWords)
     
@@ -317,3 +323,41 @@ document.getElementById("download").addEventListener("click", () => {
 
     URL.revokeObjectURL(url);
 });
+
+
+// Lấy danh sách cụm Capitalized Case hợp lệ
+function extractCapitalizedPhrases(sentence) {
+    const matches = [...sentence.matchAll(CAPITAL_PHRASE_REGEX)];
+    console.log(matches);
+    return [...new Set(matches.map(m => m[1].trim()))] // loại trùng
+        .filter(phrase => {
+            const words = phrase.split(/\s+/);
+            if (!/^[A-ZÀ-Ỵ]/.test(words[0])) return false;
+            if (words.length === 1) {
+                return /^[A-Z][a-z]*$/.test(words[0]); // chỉ giữ từ đơn tiếng Anh
+            }
+            return true;
+        });
+}
+
+// Hiển thị danh sách cụm highlight
+function renderHighlightedList(text) {
+    const box = document.getElementById("highlightResult");
+    if (!box) return;
+
+    const lines = text
+    let phrases = [];
+
+    lines.forEach(line => {
+        phrases.push(...extractCapitalizedPhrases(line));
+    });
+
+    if (phrases.length > 0) {
+        box.innerHTML = '<ul style="padding: 0;">' + phrases.map(p => `<li style="margin: 6px 0;
+                padding: 6px;
+                background: #f8f9ff;
+                border-left: 3px solid #4c6ef5; list-style:none;">${p}</li>`).join("") + "</ul>";
+    } else {
+        box.innerHTML = "<i>Không có cụm từ Hoa đầu cần highlight.</i>";
+    }
+}
