@@ -165,7 +165,7 @@ async function removeLines() {
 
     // checkLengthText(capitalizedWords)
     checkSynstaxText(capitalizedWords)
-    renderHighlightedList(capitalizedWords)
+    // renderHighlightedList(capitalizedWords)
     // const results = checkNamesByLine(capitalizedWords);
     // renderLineCheckResult(results)
 
