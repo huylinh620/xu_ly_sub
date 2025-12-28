@@ -284,10 +284,9 @@ function toSRT(arr) {
 
     arr.forEach((item, index) => {
     const length = item.length;
-    const punctuationCount = (item.match(/[,.;!]/g) || []).length;
 
     // xác định duration (giây)
-    const duration = length > 500 ? 5 : (length > 200 || (length > 140 && punctuationCount > 4)) ? 3 : 1;
+    const duration = Math.round(length / 100)
 
     // thời gian bắt đầu / kết thúc
     const start = currentTime;
