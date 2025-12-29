@@ -286,7 +286,7 @@ function toSRT(arr) {
     const length = item.length;
 
     // xác định duration (giây)
-    const duration = Math.round(length / 100)
+    const duration = Math.round(length / 100) >= 1 ? Math.round(length / 100) : 1;
 
     // thời gian bắt đầu / kết thúc
     const start = currentTime;
