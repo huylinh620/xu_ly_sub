@@ -188,7 +188,7 @@ function capitalizeFirstLetter(arr) {
             return quote + firstLetter.toUpperCase();
         });
 
-        updated = updated.replace(/(\.)(['"])$/, '$2');
+        // updated = updated.replace(/(\.)(['"])$/, '$2');
 
         return updated;
     });
