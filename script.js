@@ -240,7 +240,7 @@ function checkSynstaxText(arr) {
     const textError = arr.filter(item => {
         const newItem = item.toLowerCase();
         const regex = /\w+1$/;
-        return regex.test(newItem) || newItem.includes('#') || newItem.includes('không định hình được');
+        return regex.test(newItem) || newItem.includes('#') || newItem.includes('không được định hình');
     });
     const result = document.querySelector('.check-syntax-error');
     if (result) {
