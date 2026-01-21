@@ -146,12 +146,12 @@ async function removeLines() {
     
     // Loại bỏ dòng trống và các ký tự không mong muốn
     let cleanedText = texts.replace(/(\n\s*\n)+/g, '\n')
-        .replace(/[【】"“”‘’[\]\\]/g, "'")
+        .replace(/[【】"“”‘’\\]/g, "'")
         .replace(/["「」]+/g, "'")
         .replace(/,+$/gm, "")
         .replace(/~/g, '!')
         .replace(/～/g, '!')
-        .replace(/(^|[^.])\.(?!\.)$/gm, (match, p1) => p1)
+        .replace(/(^|^.)\.(?!\.)$/gm, (match, p1) => p1)
         .replaceAll('v.v', 'vân vân')
 
     const newTextArray = cleanedText.split('\n').map(line => line.trim());
