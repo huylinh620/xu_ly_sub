@@ -151,7 +151,7 @@ async function removeLines() {
         .replace(/,+$/gm, "")
         .replace(/~/g, '!')
         .replace(/～/g, '!')
-        .replace(/(^|^.)\.(?!\.)$/gm, (match, p1) => p1)
+        .replace(/(^|[^.])\.(?!\.)$/gm, (match, p1) => p1)
         .replaceAll('v.v', 'vân vân')
 
     const newTextArray = cleanedText.split('\n').map(line => line.trim());
